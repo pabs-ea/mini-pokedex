@@ -1,0 +1,106 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "PokeAPI v2 (Unofficial Spec)",
+    "description": "Especificaci\u00f3n OpenAPI generada autom\u00e1ticamente a partir de la documentaci\u00f3n p\u00fablica de PokeAPI.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://pokeapi.co/api/v2"
+    }
+  ],
+  "paths": {
+    "/pokemon": {
+      "get": {
+        "summary": "Lista de Pok\u00e9mon",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de Pok\u00e9mon"
+          }
+        }
+      }
+    },
+    "/pokemon/{id}": {
+      "get": {
+        "summary": "Obtener Pok\u00e9mon por ID o nombre",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detalles del Pok\u00e9mon"
+          }
+        }
+      }
+    },
+    "/ability": {
+      "get": {
+        "summary": "Lista de habilidades",
+        "responses": {
+          "200": {
+            "description": "Lista paginada de habilidades"
+          }
+        }
+      }
+    },
+    "/ability/{id}": {
+      "get": {
+        "summary": "Obtener habilidad por ID o nombre",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detalles de la habilidad"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "NamedAPIResource": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
